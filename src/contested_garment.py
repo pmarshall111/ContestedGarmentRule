@@ -37,6 +37,9 @@ def constrained_equal_losses(demand, supply):
 
 def contested_garment(demand, supply):
     total_demand = sum(demand)
+    if supply > total_demand:
+        return demand.copy()
+
     half_dem = [dem/2 for dem in demand]
     if supply <= total_demand/2:
         return constrained_equal_gainz(half_dem, supply) 
